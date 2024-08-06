@@ -57,8 +57,12 @@ const login = async () => {
 .bg-image {
     background-image: linear-gradient(to bottom,
             rgba(255, 255, 255, 0.4),
-            rgba(255, 255, 255, 0.4)), url("../assets/img/fondo_login.jpg");
-            height: 100%;
+            rgba(0, 0, 0, 0.4)), url("../assets/img/fondo_login.jpg");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            height: 100vh;
 }
 
 .bg-cristal {
