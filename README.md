@@ -1,4 +1,4 @@
-# FactoriaF5-Zootopia-Backend
+# FactoriaF5-Zootopia-Frontend
 
 This template should help get you started developing with Vue 3 in Vite.
 
