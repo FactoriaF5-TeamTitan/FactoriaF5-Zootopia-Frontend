@@ -11,7 +11,7 @@ const store = useCounterStore();
 
 const login = async () => {
     try {
-        const response = await axios.post('/api/login', {
+        const response = await axios.post('/api/v1/login', {
             email: useremail.value,
             password: password.value
         });
