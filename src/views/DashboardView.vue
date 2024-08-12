@@ -13,10 +13,10 @@ import PropertyData from '../components/dashboard/PropertyData.vue';
 
 <style scoped>
 .bg-dasboard {
-    background-image: url("../assets/img/img_dashboard.jpg");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
+  background-image: url("../assets/img/img_dashboard.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
 }
 </style>
