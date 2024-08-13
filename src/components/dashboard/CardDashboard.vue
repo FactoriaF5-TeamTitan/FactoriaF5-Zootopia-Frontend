@@ -5,11 +5,9 @@ import { ref } from 'vue';
 const listData = ref([])
 
 // Hacer una petición para un usuario con ID especifico
-axios.get('http://localhost:8080/api/v1/animals/data')
+axios.get('http://localhost:8080/api/v1/data')
   .then(function (response) {
 	listData.value = response.data;
-	console.log(response.data);
-	
   })
   .catch(function (error) {
 	// manejar error
