@@ -6,14 +6,14 @@ const newAnimal = ref({
 	name: '',
 	country: '',
 	type: '',
-	specimens: '',
+	family: '',
 	gender: '',
 	date: '',
 });
 
 const addAnimal = async () => {
 	try {
-		const response = await axios.post('/api/v1/dashboard/', newAnimal);
+		const response = await axios.post('/api/v1/animal', newAnimal);
 		const data = response.data;
 		if (data.success) {
 			resetForm();
@@ -31,7 +31,7 @@ const resetForm = () => {
 	newAnimal.value.name = '';
 	newAnimal.value.country = '';
 	newAnimal.value.type = '';
-	newAnimal.value.specimens = '';
+	newAnimal.value.family = '';
 	newAnimal.value.gender = '';
 	newAnimal.value.date = '';
 };
@@ -299,9 +299,9 @@ const resetForm = () => {
 								<option value="Zimbabwe">Zimbabwe</option>
 							</select>
 						</div>
-						<label class="text-black" for="specimens">Specimens</label>
+						<label class="text-black" for="family">Family</label>
 						<div class="input-group mb-3">
-							<select v-model="newAnimal.specimens" class="form-select" id="specimens">
+							<select v-model="newAnimal.family" class="form-select" id="family">
 								<option value="1">Félidos</option>
 								<option value="2">Cánidos</option>
 								<option value="3">Reptiles</option>
@@ -310,40 +310,40 @@ const resetForm = () => {
 							</select>
 						</div>
 						<label class="text-black" for="type">Type</label>
-						<div v-if="newAnimal.specimens == ''" class="input-group mb-3">
+						<div v-if="newAnimal.family == ''" class="input-group mb-3">
 							<select v-model="newAnimal.type" class="form-select" id="type">
 								<option disabled>Chose Specimen</option>
 							</select>
 						</div>
-						<div v-if="newAnimal.specimens == 1" class="input-group mb-3">
+						<div v-if="newAnimal.family == 1" class="input-group mb-3">
 							<select v-model="newAnimal.type" class="form-select" id="type">
 								<option value="1">León</option>
 								<option value="2">Tigre</option>
 								<option value="3">Leopardo</option>
 							</select>
 						</div>
-						<div v-if="newAnimal.specimens == 2" class="input-group mb-3">
+						<div v-if="newAnimal.family == 2" class="input-group mb-3">
 							<select v-model="newAnimal.type" class="form-select" id="type">
 								<option value="1">Zorro</option>
 								<option value="2">Lobos</option>
 								<option value="3">Chacales</option>
 							</select>
 						</div>
-						<div v-if="newAnimal.specimens == 3" class="input-group mb-3">
+						<div v-if="newAnimal.family == 3" class="input-group mb-3">
 							<select v-model="newAnimal.type" class="form-select" id="type">
 								<option value="1">Cocodrilos</option>
 								<option value="2">Serpientes</option>
 								<option value="3">Iguanas</option>
 							</select>
 						</div>
-						<div v-if="newAnimal.specimens == 4" class="input-group mb-3">
+						<div v-if="newAnimal.family == 4" class="input-group mb-3">
 							<select v-model="newAnimal.type" class="form-select" id="type">
 								<option value="1">Nútria</option>
 								<option value="2">Comadrejas</option>
 								<option value="3">Tejones</option>
 							</select>
 						</div>
-						<div v-if="newAnimal.specimens == 5" class="input-group mb-3">
+						<div v-if="newAnimal.family == 5" class="input-group mb-3">
 							<select v-model="newAnimal.type" class="form-select" id="type">
 								<option value="1">Conejos </option>
 								<option value="2">Liebres</option>

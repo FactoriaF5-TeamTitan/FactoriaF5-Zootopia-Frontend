@@ -2,19 +2,23 @@
 import axios from 'axios';
 import { ref } from 'vue';
 
-const data = ref([])
+const listData = ref([])
 
-axios.get('/api/v1/dashboard/data')
-	.then(function (response) {
-		data.value = response.data
-	})
-	.catch(function (error) {
-		console.error('There was a problem with the data request:', error);
-		alert('There was a problem with the data request');
-	})
-	.finally(function () {
-		//
-	});
+// Hacer una petición para un usuario con ID especifico
+axios.get('http://localhost:8080/api/v1/animals/data')
+  .then(function (response) {
+	listData.value = response.data;
+	console.log(response.data);
+	
+  })
+  .catch(function (error) {
+	// manejar error
+	alert('There was a problem with the data request');
+	console.log(error);
+  })
+  .finally(function () {
+	// siempre sera executado
+  });
 </script>
 
 <template>
@@ -29,8 +33,10 @@ axios.get('/api/v1/dashboard/data')
 					Animal</button>
 
 			</div>
-			<ul v-if="data.value != null" class="list-group list-group-flush">
-				<li v-for="type in data" :key="type.id" class="list-group-item">{{ type.type }}: {{ type.count }}</li>
+			{{ listData.value }}
+			<ul class="list-group list-group-flush">
+				<li v-for="type in listData" :key="type.id" class="list-group-item">{{ type.family }}: {{ type.count }}
+				</li>
 			</ul>
 		</div>
 	</div>
