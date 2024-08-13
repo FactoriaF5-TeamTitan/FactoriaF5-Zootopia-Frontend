@@ -2,21 +2,15 @@
 import axios from 'axios';
 import { ref } from 'vue';
 
-const listData = ref([])
+const listData = ref([]);
 
-// Hacer una petición para un usuario con ID especifico
-axios.get('http://localhost:8080/api/v1/data')
-  .then(function (response) {
-	listData.value = response.data;
-  })
-  .catch(function (error) {
-	// manejar error
-	alert('There was a problem with the data request');
-	console.log(error);
-  })
-  .finally(function () {
-	// siempre sera executado
-  });
+const data = async () => {
+	const response = await axios.get('http://localhost:8080/api/v1/animals')
+	listData.value = await response.data;
+}
+
+data();
+
 </script>
 
 <template>
