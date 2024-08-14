@@ -7,13 +7,14 @@ const newAnimal = ref({
 	country: '',
 	type: '',
 	family: '',
-	gender: '',
+	genre: '',
 	date: '',
+	image: '',
 });
 
 const addAnimal = async () => {
 	try {
-		const response = await axios.post('/api/v1/animal', newAnimal);
+		const response = await axios.post('http://localhost:8080/api/v1/animal', newAnimal);
 		const data = response.data;
 		if (data.success) {
 			resetForm();
@@ -29,12 +30,14 @@ const addAnimal = async () => {
 
 const resetForm = () => {
 	newAnimal.value.name = '';
-	newAnimal.value.country = '';
 	newAnimal.value.type = '';
 	newAnimal.value.family = '';
-	newAnimal.value.gender = '';
+	newAnimal.value.genre = '';
+	newAnimal.value.country = '';
 	newAnimal.value.date = '';
+	newAnimal.value.image = 'null';
 };
+
 </script>
 
 <template>
@@ -351,7 +354,7 @@ const resetForm = () => {
 						</div>
 						<label class="text-black" for="gender">Gender</label>
 						<div class="input-group mb-3">
-							<select v-model="newAnimal.gender" class="form-select" id="gender">
+							<select v-model="newAnimal.genre" class="form-select" id="genre">
 								<option value="male">Male</option>
 								<option value="female">Female</option>
 							</select>
