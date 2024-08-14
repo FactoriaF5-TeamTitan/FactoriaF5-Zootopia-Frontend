@@ -15,7 +15,7 @@ data();
 </script>
 
 <template>
-  <div class="container">
+  <div class="container mt-5 pt-5">
     <div class="row">
       <div class="col-10"></div>
       <table class="table table-striped">
